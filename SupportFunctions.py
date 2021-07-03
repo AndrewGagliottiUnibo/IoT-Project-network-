@@ -72,21 +72,24 @@ def gatewayConnection(address, measures, buffer):
 #
 # It'a Simple TCP connection with a data printing at the end
 def connectionToGateway(serverPort, serverIP, buffer):
+    
+    print('Establishing TCP connection ... \n')
     sSocket = sck.socket(sck.AF_INET, sck.SOCK_STREAM)
     sSocket.bind(('localhost', serverPort))
     
     # Listening the request for connection
+    print('Interface: {}, port: {}' .format(serverIP, serverPort))
     sSocket.listen(1)
     
     # Accepting the connection and then it's time to receive data
     gatewayConnection, address = sSocket.accept()
     print("Gateway connected! \n")
     print("Detections received are:\n")
-    measures = gatewayConnection.recv(buffer)
+    serverMessage = gatewayConnection.recv(buffer)
     
     # Printing data
-    print(measures.decode("utf8"))
-    gatewayConnection.send(("Ok, detections received!").encode())
+    print(serverMessage.decode("utf8"))
+    gatewayConnection.send(("Data received").encode())
     
     # Closing
     gatewayConnection.close()
