@@ -21,7 +21,8 @@ nDevices = 4
 buffer = 4096
 measuresToSend = ''
 
-# First we start to listen for the devices: so we need the ip address and the port number
+# First we start to listen for the devices: so we need the host ip address and 
+# the port number we are using
 sDevice = sck.socket(sck.AF_INET, sck.SOCK_DGRAM)
 sDevice.bind(("localhost", 10000))
 
@@ -31,7 +32,7 @@ for i in range(nDevices):
     measuresToSend = measuresToSend + data.encode('utf-8') + '\n'
     time.sleep(2)
     print('Data receveived from {}' .format(address))
-    sDevice.sendto('Detection arrived', address)
+    sDevice.sendto('Detection arrived: ...'.encode(), address)
     
 # Closing socket after receiving the data collected
 sDevice.close()
@@ -39,8 +40,9 @@ sDevice.close()
 """---------------------------------------------------------------------------------------------------------"""
 # Now it's time to send all collected data to cloud server and in order to do that 
 # we need to establish a TCP connection between the gateway and the server
+print('... time to open interface 10.10.10.5')
 sCloud = sck.socket(sck.AF_INET, sck.SOCK_STREAM)
-sCloud.connect('localhost', 8002)
+sCloud.connect(('localhost', 8002))
 
 # Resetting the buffer
 buffer = 4096
