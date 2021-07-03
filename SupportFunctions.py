@@ -7,7 +7,7 @@ Created on Fri Jul  2 23:04:10 2021
 
 # Libraries used
 import time
-import socket
+import socket as sck
 
 # In this first istance I decided to create some usefull functions for supporting
 # my application and giving my code a nice look.
@@ -38,14 +38,13 @@ def detectionsReader(ip, fileName):
 # Now it's time to create the UDP connection and sending the collected data to
 # the Gateway: in order to do this I need the Gateway address and the measures
 # that have been collected from a specific device
-def gatewayConnection(address, measures):
+def gatewayConnection(address, measures, buffer):
     
     # Establishing UDP connection - starting by creating the socket
     # and then sending info using a try statement for controlling any kind of
     # exceptions
     print('Opening socket ...')
-    mySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    #buffer = 4096
+    mySocket = sck.socket(sck.AF_INET, sck.SOCK_DGRAM)
     
     try:
         # Sending data and then ...
@@ -59,7 +58,7 @@ def gatewayConnection(address, measures):
         data, server = mySocket.recvfrom()
         time.sleep(2)
         print('Message: {}' .format(data.decode("utf8")))
-        #print('Size of used buffer is {}' .format(buffer))
+        print('Size of used buffer is {}' .format(buffer))
         
     except Exception as e:
         print(e)
@@ -67,9 +66,31 @@ def gatewayConnection(address, measures):
         print('Closing socket ...')
         mySocket.close()
         
+"""---------------------------------------------------------------------------------------------------------"""
+# Now I'm defining the last part of the project: after defining the devices and
+# the Gateway, now I'm defining TCP connection to the Gateway established by the server
+#
+# It'a Simple TCP connection with a data printing at the end
+def connectionToGateway(serverPort, serverIP, buffer):
+    sSocket = sck.socket(sck.AF_INET, sck.SOCK_STREAM)
+    sSocket.bind(('localhost', serverPort))
     
+    # Listening the request for connection
+    sSocket.listen(1)
     
+    # Accepting the connection and then it's time to receive data
+    gatewayConnection, address = sSocket.accept()
+    print("Gateway connected! \n")
+    print("Detections received are:\n")
+    measures = gatewayConnection.recv(buffer)
     
+    # Printing data
+    print(measures.decode("utf8"))
+    gatewayConnection.send(("Ok, detections received!").encode())
+    
+    # Closing
+    gatewayConnection.close()
+    sSocket.close()
     
     
     
