@@ -10,5 +10,6 @@ import SupportFunctions as sf
 ip = '192.168.1.2'
 fileName = 'Measures02.txt'
 gateway_address = ('localhost', 10000)
+buffer = 4096
 measures = sf.detectionsReader(ip, fileName)
-sf.gatewayConnection(gateway_address, measures)
+sf.gatewayConnection(gateway_address, measures, buffer)
