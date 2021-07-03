@@ -21,17 +21,23 @@ import socket as sck
 # the function saves all data in a field that must be returned, which are our measurations.
 def detectionsReader(ip, fileName):
     
+    measures = ''
+    
     #Opening the file
     path = 'Data/' + fileName
     file = open(path, 'r')
-    print('Reading available data ... ')
+    print('Reading available data ...')
     time.sleep(2)
     
-    #Reading all measures and creating a list of strings
-    measures = ip + file.readlines()
+    read = ' '
+    #Reading all measures and creating a string
+    while (read != ''):
+        read = file.readline()
+        measures = measures + '{}: {}' .format(ip, read) 
 
-    # Closing the file and returning the list of strings
+    # Closing the file and returning the string
     file.close()
+    print('Data of {} has been read. Closing related file' .format(ip))
     return measures
 
 """---------------------------------------------------------------------------------------------------------"""
@@ -42,23 +48,28 @@ def gatewayConnection(address, measures, buffer):
     
     # Establishing UDP connection - starting by creating the socket
     # and then sending info using a try statement for controlling any kind of
-    # exceptions
+    # exceptions due to UDP not reliability
     print('Opening socket ...')
     mySocket = sck.socket(sck.AF_INET, sck.SOCK_DGRAM)
     
     try:
-        # Sending data and then ...
+        # Sending data and start measuring time occurred
         time.sleep(2)
+        start = time.time()
         print('Sending ...')
         mySocket.sendto(measures.encode(), address)
         
         # recvfrom() reads a number of bytes sent from an UDP socket, in this case
         # we are reading data from the Gateway - it's like waiting for a response
         print('Waiting ...')
-        data, server = mySocket.recvfrom()
+        data, server = mySocket.recvfrom(buffer)
+        
+        #elapsed time and printing info
+        elapsed = time.time() - start
         time.sleep(2)
         print('Message: {}' .format(data.decode("utf8")))
         print('Size of used buffer is {}' .format(buffer))
+        print('Time occured for UDP connection: {}' .format(elapsed))
         
     except Exception as e:
         print(e)
@@ -68,9 +79,10 @@ def gatewayConnection(address, measures, buffer):
         
 """---------------------------------------------------------------------------------------------------------"""
 # Now I'm defining the last part of the project: after defining the devices and
-# the Gateway, now I'm defining TCP connection to the Gateway established by the server
+# the Gateway, now I'm defining the receiver of the TCP connection between server 
+# and Gateway
 #
-# It'a Simple TCP connection with a data printing at the end
+# It'a simple receiver of a TCP connection with a data printing at the end
 def connectionToGateway(serverPort, serverIP, buffer):
     
     print('Establishing TCP connection ... \n')
@@ -83,12 +95,13 @@ def connectionToGateway(serverPort, serverIP, buffer):
     
     # Accepting the connection and then it's time to receive data
     gatewayConnection, address = sSocket.accept()
-    print("Gateway connected! \n")
-    print("Detections received are:\n")
+    print('Gateway connected! \n')
+    print('Data received are:\n')
     serverMessage = gatewayConnection.recv(buffer)
     
     # Printing data
     print(serverMessage.decode("utf8"))
+    print('Size of used buffer is {}' .format(buffer))
     gatewayConnection.send(("Data received").encode())
     
     # Closing
