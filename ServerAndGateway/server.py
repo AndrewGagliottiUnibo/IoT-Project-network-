@@ -13,4 +13,5 @@ serverIP = '10.10.10.5'
 buffer = 4096
 
 # Establishing the connection
-SupportFunctions.connectionToGateway(serverPort, serverIP, buffer)
+def launch():
+    SupportFunctions.connectionToGateway(serverPort, serverIP, buffer)

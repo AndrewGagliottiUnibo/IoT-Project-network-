@@ -69,7 +69,7 @@ def gatewayConnection(address, measures, buffer):
         time.sleep(2)
         print('Message: {}' .format(data.decode("utf8")))
         print('Size of used buffer is {}' .format(buffer))
-        print('Time occured for UDP connection: {}' .format(elapsed))
+        print('Time occured for UDP sending: {}' .format(elapsed))
         
     except Exception as e:
         print(e)
