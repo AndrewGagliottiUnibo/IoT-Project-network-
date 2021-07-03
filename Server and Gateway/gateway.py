@@ -38,14 +38,14 @@ for i in range(nDevices):
 sDevice.close()
 
 """---------------------------------------------------------------------------------------------------------"""
+# Resetting the buffer
+buffer = 4096
+
 # Now it's time to send all collected data to cloud server and in order to do that 
 # we need to establish a TCP connection between the gateway and the server
 print('... time to open interface 10.10.10.5')
 sCloud = sck.socket(sck.AF_INET, sck.SOCK_STREAM)
 sCloud.connect(('localhost', 8002))
-
-# Resetting the buffer
-buffer = 4096
 
 # Sending data to server
 sCloud.send(measuresToSend.encode())
