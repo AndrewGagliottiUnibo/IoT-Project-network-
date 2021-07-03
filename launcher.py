@@ -11,8 +11,6 @@ import Devices.Device03 as dvc03
 import Devices.Device04 as dvc04
 import ServerAndGateway.gateway as SADg
 import ServerAndGateway.server as SADs
-import Functions
-
 
 dvc01.launch()
 dvc02.launch()
