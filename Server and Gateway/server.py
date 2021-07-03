@@ -9,7 +9,7 @@ Created on Sat Jul  3 00:56:33 2021
 import SupportFunctions
 
 serverPort = 8002
-serverIP = '10.10.10.2'
+serverIP = '10.10.10.5'
 buffer = 4096
 
 # Establishing the connection
