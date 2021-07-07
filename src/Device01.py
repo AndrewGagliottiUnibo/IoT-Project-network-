@@ -12,7 +12,8 @@ import Functions.SupportFunctions as sf
 # After this we start reading the file content and send it to the gateway
 ip = '192.168.1.1'
 fileName = 'Measures01.txt'
-gateway_address = ('localhost', 10003)
+portNumberUDP = 10024
+gateway_address = ('localhost', portNumberUDP)
 buffer = 4096
 
 measures = sf.detectionsReader(ip, fileName)
