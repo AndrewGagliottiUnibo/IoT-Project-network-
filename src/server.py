@@ -8,7 +8,7 @@ Created on Sat Jul  3 00:56:33 2021
 # Libraries used
 import Functions.SupportFunctions as sf
 
-serverPort = 8002
+serverPort = 8080
 serverIP = '10.10.10.5'
 buffer = 4096
 

@@ -32,6 +32,7 @@ def detectionsReader(ip, fileName):
     read = ' '
     #Reading all measures and creating a string
     while (read != ''):
+
         read = file.readline()
         measures = measures + '{}: {}' .format(ip, read) 
 
@@ -107,6 +108,10 @@ def connectionToGateway(serverPort, serverIP, buffer):
     # Closing
     gatewayConnection.close()
     sSocket.close()
+    
+    file = open('../Data/Output.txt', 'w')
+    file.write(serverMessage.decode('utf8'))
+    file.close()
     
     
     

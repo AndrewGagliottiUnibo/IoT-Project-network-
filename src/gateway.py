@@ -14,20 +14,21 @@ import time
 # data collected by all devices and then eastablish a TCP connection to the cloud
 #
 # After establishing the connection now it's time to send the data and then waiting
-# for the confirm of correct reception of the data.
+# for the confirm of correct reception.
 
-    
 # Variables
 nDevices = 4
 buffer = 4096
 measuresToSend = ''
+portNumberUDP = 10024
+portNumberTCP = 8080
 
 # First we start to listen for the devices: so we need the host ip address and 
 # the port number we are using
 sDevice = sck.socket(sck.AF_INET, sck.SOCK_DGRAM)
-sDevice.bind(("localhost", 10003))
+sDevice.bind(("localhost", portNumberUDP))
 
-# Now it's time to wait for the detections - UDP connection
+# Now it's time to wait for the data - UDP connection
 for i in range(nDevices):
     data, address = sDevice.recvfrom(buffer)
     measuresToSend = measuresToSend + data.decode('utf8') + '\n'
@@ -45,9 +46,9 @@ buffer = 4096
 # Now it's time to send all collected data to cloud server and in order to do that 
 # we need to establish a TCP connection between the gateway and the server:
 # gateway is the sender
-print('... time to open interface 10.10.10.5')
+print('... it\'s time to open interface 10.10.10.5')
 sCloud = sck.socket(sck.AF_INET, sck.SOCK_STREAM)
-sCloud.connect(('localhost', 8002))
+sCloud.connect(('localhost', portNumberTCP))
 start = time.time()
 
 # Sending data to server
