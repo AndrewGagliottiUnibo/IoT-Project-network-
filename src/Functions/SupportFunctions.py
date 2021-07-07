@@ -9,7 +9,10 @@ Created on Fri Jul  2 23:04:10 2021
 import time
 import socket as sck
 
-# In this first istance I decided to create some usefull functions for supporting
+# TImes to read the file
+timesToRead = 4
+
+# In this second istance I decided to create some usefull functions for supporting
 # my application and giving my code a nice look.
 #
 # I start by defining the real core of the application, which means reading the detections
@@ -19,10 +22,10 @@ import socket as sck
 # I start defining the way the application reads the detections:
 # first we start opening the file, then reading each line of it and at the end
 # the function saves all data in a field that must be returned, which are our measurations.
-
-# TImes to read the file
-timesToRead = 4
-
+#
+# Why not use the list of string with the readlines() method? because the way python 
+# works with strings could be sometimes unreadable: lists are a little trick to
+# read and manage
 def detectionsReader(ip, fileName):
     
     measures = ''
@@ -33,7 +36,7 @@ def detectionsReader(ip, fileName):
     print('Reading available data ...')
     time.sleep(2)
     
-    read = ' '
+    read = ''
     #Reading all measures and creating a string
     for i in range(timesToRead):
 
@@ -46,7 +49,7 @@ def detectionsReader(ip, fileName):
     return measures
 
 """---------------------------------------------------------------------------------------------------------"""
-# Now it's time to create the UDP connection and sending the collected data to
+# Now it's time to establish the UDP connection and sending all collected data to
 # the Gateway: in order to do this I need the Gateway address and the measures
 # that have been collected from a specific device
 def gatewayConnection(address, measures, buffer):
@@ -84,10 +87,11 @@ def gatewayConnection(address, measures, buffer):
         
 """---------------------------------------------------------------------------------------------------------"""
 # Now I'm defining the last part of the project: after defining the devices and
-# the Gateway, now I'm defining the receiver of the TCP connection between server 
+# the Gateway, now I'm defining the receiver part of the TCP connection between server 
 # and Gateway
 #
-# It'a simple receiver of a TCP connection with a data printing at the end
+# It'a simple receiver of a TCP connection with data printing at the end and
+# a copy of it on file.
 def connectionToGateway(serverPort, serverIP, buffer):
     
     print('Establishing TCP connection ... \n')
