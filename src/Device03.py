@@ -13,8 +13,8 @@ import Functions.SupportFunctions as sf
 ip = '192.168.1.3'
 fileName = 'Measures03.txt'
 portNumberUDP = 10024
-gateway_address = ('localhost', portNumberUDP)
+gatewayAddress = ('localhost', portNumberUDP)
 buffer = 4096
 
 measures = sf.detectionsReader(ip, fileName)
-sf.gatewayConnection(gateway_address, measures, buffer)
+sf.gatewayConnection(gatewayAddress, measures, buffer)
