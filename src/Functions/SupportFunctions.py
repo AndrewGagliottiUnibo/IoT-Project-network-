@@ -19,6 +19,10 @@ import socket as sck
 # I start defining the way the application reads the detections:
 # first we start opening the file, then reading each line of it and at the end
 # the function saves all data in a field that must be returned, which are our measurations.
+
+# TImes to read the file
+timesToRead = 4
+
 def detectionsReader(ip, fileName):
     
     measures = ''
@@ -31,10 +35,10 @@ def detectionsReader(ip, fileName):
     
     read = ' '
     #Reading all measures and creating a string
-    while (read != ''):
+    for i in range(timesToRead):
 
         read = file.readline()
-        measures = measures + '{}: {}' .format(ip, read) 
+        measures = measures + '{}: {}' .format(ip, read)
 
     # Closing the file and returning the string
     file.close()
