@@ -64,5 +64,6 @@ print('Message received: {}' .format(data.decode('utf-8')))
 print('Size of used buffer is {}' .format(buffer))
 print('Time occured for TCP establishing: {}' .format(elapsed))
 
-# CLosing
+# Closing
+print('Closing socket ...')
 sCloud.close()

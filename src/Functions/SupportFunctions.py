@@ -114,6 +114,7 @@ def connectionToGateway(serverPort, serverIP, buffer):
     gatewayConnection.send(("Data received").encode())
     
     # Closing
+    print('Closing connection and socket ...')
     gatewayConnection.close()
     sSocket.close()
     
