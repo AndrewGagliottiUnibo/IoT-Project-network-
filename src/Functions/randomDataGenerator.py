@@ -14,6 +14,9 @@ timesToRepeat = 4
 for j in range(timesToRepeat):
     file = open('../../Data/Measures0{}.txt' .format(j + 1), 'w')
     for i in range(timesToRepeat):
-        file.write('Time: {}:00 - ' .format(00 + i * timesToRepeat * 2) + 'Temperature: {} C -' .format(round(random.uniform(20, 40), 1)) + ' {} % of humidity' .format(round(random.uniform(40, 80), 1)) + '\n')
+        file.write('Time: {}:00 - ' .format(00 + i * timesToRepeat * 2) + 
+                   'Temperature: {} C -' .format(round(random.uniform(20, 40), 1)) + 
+                   ' {} % of humidity' .format(round(random.uniform(40, 80), 1)) + 
+                   '\n')
     
     file.close()
