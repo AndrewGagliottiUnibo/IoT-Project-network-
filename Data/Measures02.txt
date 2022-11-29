@@ -1,4 +1,0 @@
-Time: 0:00 - Temperature: 38.5 C - 46.3 % of humidity
-Time: 8:00 - Temperature: 31.4 C - 63.9 % of humidity
-Time: 16:00 - Temperature: 29.2 C - 71.6 % of humidity
-Time: 24:00 - Temperature: 34.1 C - 79.8 % of humidity
