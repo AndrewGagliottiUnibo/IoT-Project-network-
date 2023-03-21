@@ -1,6 +1,7 @@
 import math
 import sys
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Esercizio 1
 print("\n           Esercizio 1")
@@ -52,6 +53,10 @@ print(z)
 print(q)
 print(z == q)
 
+# Oppure
+s10 = np.spacing(10.0**10)
+print(s10)
+
 # Esercizio 5
 print("\n\n          Esercizio 5")
 a = 1.234567890123400e+15
@@ -90,55 +95,54 @@ print(y2)
 # Esercizio 7
 print("\n\n          Esercizio 7")
 
-
-# Per il calcolo del valore assoluto come da regola matematica
-def relativeError(real, machine):
-    return abs(machine - real) / abs(real)
-
-
 # Array reale
-x = np.array([10 ** 0, 10 ** 1, 10 ** 2, 10 ** 3, 10 ** 4,
-              10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9,
-              10 ** 10, 10 ** 11, 10 ** 12, 10 ** 13, 10 ** 14,
-              10 ** 15, 10 ** 6, 10 ** 7, 10 ** 18, 10 ** 19,
-              10 ** 20])
+x = 10.0**np.arange(21)
 
 # Array approssimato
 A = (1 / x) - (1 / (x + 1))
+B = 1 / (x * (x + 1))
 print(A)
+print(B)
 
 # Calcolo tramite formula teorica e formula data
-Er = np.array([])
-for i, j in zip(x, A):
-    Er = np.append(Er, relativeError(i, j))
-B = 1 / (x * (x + 1))
+Er = np.abs(A - B) / np.abs(B)
 print(Er)
-print(B)
+
+plt.loglog(x, Er, 'b-')
+plt.show()
+print(np.spacing)
 
 # Esercizio 8
 print("\n\n          Esercizio 8")
+k = np.arange(1, 9)
+a = 1
+b = 10.0**k
+c = 1
 
-# Risoluzione
-for k in range(1, 9):
-    a = 1
-    b = 10**k
-    c = 1
+d = (b**2) - (4 * a * c)
+x1 = (-b + np.sqrt(d)) / (2 * a)
+x2 = (-b - np.sqrt(d)) / (2 * a)
+print(f"k={k}:      x1={x1},    x2={x2}")
 
-    d = (b**2) - (4 * a * c)
-    x1 = (-b + math.sqrt(d)) / (2 * a)
-    x2 = (-b - math.sqrt(d)) / (2 * a)
+x1new = c / (a * x2)
+x1true = -10.0**(-k)
 
-    print(f"k={k}:      x1={x1},    x2={x2}")
+err = np.abs(x1true - x1) / np.abs(x1true)
+err_new = np.abs(x1true - x1new) / np.abs(x1true)
+plt.semilogy(k, err, 'r-', k, err_new, 'g:')
+plt.show()
 
 # Esercizio 9
 print("\n\n          Esercizio 9")
 e = math.exp(1)
+x = 10.0**np.arange(17)
 print(e)
+print(x)
 
-# Calcolo
-for k in range(0, 16):
-    n = 10**k
+y = ((1 / x) + 1)**x
+z = np.full_like(y, e)
+print(y)
 
-    sol = (1 / (n + 1))**n
-    print(sol)
-
+plt.semilogx(x, z)
+plt.semilogx(x, y)
+plt.show()
