@@ -140,11 +140,11 @@ def newton_m(fname, fpname, x0, m, tolx, toly, nmax):
 
 
 def iterazione(gname, x0, tolx, nmax):
-    xk = [];
+    xk = []
     xk.append(x0)
     while True:
-        x1 = gname(x0);
-        d = x1 - x0;
+        x1 = gname(x0)
+        d = x1 - x0
         xk.append(x1)
         if len(xk) >= nmax or abs(d) < tolx * abs(x1): break
         x0 = x1
