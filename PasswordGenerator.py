@@ -13,12 +13,12 @@ while TRUE:
     # I tried to study the functions for understanding alphanumerical characters
     for i in range(0, len(seed)):
         for letter in seed:
-            #if letter.isnumeric():
+            # if letter.isnumeric():
             encrypter.append(random.choice(list(string.ascii_letters)))
-            #if letter.isalpha():
-                #encrypter.append(random.choice(list(string.digits)))
-            #if letter.isspace():
-                #encrypter.append(random.choice(list(string.ascii_letters)))
+            # if letter.isalpha():
+            # encrypter.append(random.choice(list(string.digits)))
+            # if letter.isspace():
+            # encrypter.append(random.choice(list(string.ascii_letters)))
 
         random.shuffle(encrypter)
 
