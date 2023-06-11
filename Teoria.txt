@@ -1,0 +1,171 @@
+Intelligenza artificiale, Machine Learning e Deep Learning.
+IA: Scienza che cerca di riprodurre l’intelligenza umana dei settori del apprendere, riconoscere e scegliere
+ML: sottoinsieme di IA, branca del informatica che punta a creare programmi che apprendano esperienza E dopo aver migliorato le proprie prestazioni P  a seguito dello svolgimento di alcune classi di compito T 
+DL: sottoinsieme di ML, utilizza le reti neurali per analizzare diversi fattori imitando il cervello umano.
+
+Storia dell’intelligenza artificiale, Origini, I due Inverni, Tempi moderni: 2011 ad oggi 
+-origini: la storia delle IA parte dagli anni 40’ con il test di turing, il primo neurone artificiale, fino alla scrittura di alcuni chatbot
+-primo inverno: meta anni 70’  riduzione dei fondi dovuta ai problemi di combinatoria, scarsa capacità computazionale e data set di piccole dimensioni
+-secondo inverno: inizio anni 90’, nonostanta fosse stato inventato l'algoritmo di backpropagation le intelligenze artificiali non riescono a scalare a problemi complessi
+- tempi moderni: migliora l’hardware,nascono software di feature extraction e vengono sviluppati classificatori efficaci. ciò porta al successo in diversi campi
+-2012: nonostante le reti neurali fossero state inventate già negli anni 90’ solo nel 2012 si arrivò alla svolta. quando una CNN batte di largo margine tutti gli altri software di riconoscimento delle immagini
+
+Deep Learning
+utilizza le reti neurali per emulare  il cervello umano.
+Con il termine DNN (Deep Neural Network) si denotano reti « profonde » composte da molti livelli (almeno 2 hidden ) organizzati gerarchicamente.
+ Le DNN oggi maggiormente utilizzate consistono di un numero di livelli compreso tra 7 e 50 Reti più profonde (100 livelli e oltre) hanno dimostrato di poter garantire prestazioni leggermente migliori, a discapito però dell’efficienza
+
+Paradigma del machine Learning vs Paradigma di programmazione tradizionale.
+ML ha cambiato radicalmente l’approccio dei programmatori: 
+Nella programmazione classica bisogna scrivere codice per ogni passaggio del programma e situazione in cui incorre.
+nel ML è l’algoritmo che è in grado di sviluppare da sé una logica propria in modo da prendere decisioni in autonomia
+
+Preparazione dei dati (Training Set, Validation Set, Testing Set) – Modello – Predizione
+I dati raccolti vanno etichettati, ovvero è necessario rappresentare il contenuto semantico di essi; questi vengono poi divisi in: training set,dati su cui il modello verrà addestrato; validation set, sul quale vengono messi a punto gli iperparametri; testing set, che viene utilizzato per testare il modello in modo da avere il modello la cui predizioni abbiano l’errore minore possibile.
+Il training set è solitamente l’insieme dei dati più grande
+
+Task del Machine Learning: Classificazione, Regressione e Clustering
+La classificazione: dato un insieme di classi, il programma cerca di stabilire a quale di queste classi appartiene l’input.
+la regressione cerca di trovare la funzione che fa da relazione tra le variabili indipendenti e dipendenti. in modo da poter predire l’output di valori di input mai visti prima.
+il clustering permette di raggruppare dati con caratteristiche simili, usato spesso in apprendimento non supervisionato
+
+Necessità di una fase di feature extraction nel Machine learning
+La feature extraction è quel procedimento che permette di ricavare le caratteristiche essenziali dai dati sul quale allenare i modelli di ML. Il Deep Learning permette di evitare questa fase in quanto è la rete neurale stessa a effettuare questa differenziazione nei dati.
+
+Deep Learning – vs Machine Learning
+La differenza più grande tra queste due metodologie sta nella fase del feature extraction, in quanto nel ML deve essere effettuato dal programmatore, mentre nel DL La rete neurale sarà in grado di estrarre le feature necessarie, a discapito di una maggiore difficoltà nell’apprendimento.
+
+Classificazione degli algoritmi di Machine Learning: Algoritmi Supervisionati (Regressione e classificazione)
+Vengono forniti in input i dati di partenza e il risultato che si vorrebbe ottenere, il modello ha il compito di trovare una regola generale in modo da riprodurre la relazione tra i dati e i risultati voluti.
+
+Algoritmi non supervisionati (Clustering ed Associazione), Apprendimento Semi-supervisionato,
+Il modello cerca di apprendere in autonomia la struttura dei dati in input, facendo raggruppamento in base a caratteristiche comuni. senza sapere quale è il risultato voluto, così facendo è possibile trovare nuovi significati nei dati che non sono stati presi in considerazione. 
+
+Apprendimento con rinforzo.
+L’algoritmo interagisce con l’ambiente col fine di raggiungere un determinato obiettivo. L'interazione viene gestita attraverso delle ricompense che vengono date in funzione agli obiettivi raggiunti. Con questo metodo è l’algoritmo a prendere le decisioni, senza avere definito delle regole a priori, le quali porteranno ad una penalità o un premio. L’algoritmo, quindi, impara tramite la sperimentazione in totale autonomia. è molto efficace per domini complessi.
+
+Reti Neurali Artificiali: Neurone Biologico e Neurone artificiale. 
+Un neurone è essenzialmente composto da una serie di collegamenti in ingresso con diversi neuroni, un collegamento in uscita e un livello di eccitamento interno. il livello di eccitamento interno varia in base ai valori di input ricevuti dai collegamenti in ingresso con gli altri neuroni. tali collegamenti inoltre hanno un “peso” che potrebbe diminuire o aumentare l'intensità dell input. La funzione di uscita di un neurone è solitamente non lineare es ReLu, Sigmoide
+
+Funzioni di attivazione. 
+Si tratta di una funzione che simula il comportamento del neurone, ovvero che emetti un output solo se l’input superano una certa soglia . Possono essere di diversi tipi, ma solitamente sono non lineari e derivabili in modo che la rete sia in grado di comprendere la relazione complesse tra gli input.
+
+Percettrone a soglia e limiti.
+Si tratta di un singolo neurone con funzione di attivazione a soglia, pertanto è in grado soltanto di effettuare una separazione lineare tra due classi. Se si vogliono effettuare separazioni non lineari è necessario aggiungere più percettroni fino a raggiungere il risultato desiderato.
+
+Reti Neurali artificiali: Input Layer, Hidden Layer, Output Layer.
+Input layer:livello visibile all'esterno che prende in ingresso le feature e le passa ai neuroni del livello intermedio.
+Hidden Layer: si tratta di uno o più livelli di neuroni interconnessi compresi tra il livello di input e quello di output. vengono chiamati così perché non sono visibili all’ esterno.
+Output Layer: Livello visibile all’esterno che restituisce il risultato di tutti i layer precedenti.
+
+Reti FeedForward, Reti ricorrenti.
+Le reti FeedForward vengono chiamate così perchè i livelli sono collegati in successione, e non è possibile avere dei collegamenti all’indietro o verso lo stesso livello.
+Le reti ricorrenti prevedono le connessioni di feedback sia verso neuroni dello stesso livello che all’indietro, dando così alla rete una memoria del passato che inciderà sul risultato finale
+
+MultiLayer Preceptron (MLP)
+Sono reti fully-connected di tipo FeedForward, quindi ogni neurone sarà connesso con ogni neurone dello strato successivo. Il teorema”Universal Approximation Theorem” afferma che una funzione che mappa intervalli di numeri reali su un intervallo di numeri reali può essere approssimata da MLP con 1 solo hidden layer
+
+Training di una rete neurale. 
+Il training delle reti neurali è molto simile all’apprendimento del cervello umano. Vengono presentati dei dati in input alla rete i quali li elabora e restituisce un risultato. Questo risultato viene confrontato con il risultato che ci si aspettava e in base a questo riscontro vengono aggiustati i pesi tra le connessioni tra i vari neuroni. Si ripete questo procedimento finché non si raggiungono i risultati aspettati. 
+
+Forward Propagation e Backward Propagation.
+Con forward propagation di intende la propagazione delle informazioni in avanti nella rete, ovvero dal layer di input verso quello di output. La backward propagation è tecnica che utilizza alcune derivate, per svolgere più velocemente il gradiente della funzione costo e aggiornare i pesi
+
+Loss Function e Funzione costo.
+La loss function misura l’errore tra la previsione effettuata dalla rete rispetto all’output reale dei dati di training.Il training punta a minimizzare questa loss function per ogni dato. La cost function misura la perdita media sull’intero dataset di addestramento.
+
+Reti neurali Convoluzionali:
+Limiti delle reti MLP nell’elaborazione delle immagini. 
+Per l’elaborazione delle immagini, risultano troppo pesanti in quanto si utilizza un neurone per ogni pixel rappresentato, che a loro volta sono collegati a tutti i neuroni del livello successivo e quindi si avrebbe un numero di parametri eccessivo per il loro utilizzo.
+Mancanza di invarianza per traslazione.
+Le MLP sono totalmente dipendenti dalla posizione dei pixel, quindi una stessa immagine ma ruotata risulterà totalmente diversa per la rete, e quindi produrrà un risultato differente. Per ovviare a questo problema vengono utilizzate le CNN.
+
+Le reti neurali convoluzionali (CNN) sono reti profonde (deep) ispirate alle ricerche biologiche di Hubel e Wiesel durante lo studio del cervello dei gatti.
+Si è scoperto che gli animali hanno una struttura a strati nella corteccia visiva, risultando in un approccio di tipo feed forward. Ciò permette ad ogni livello di astrarre sempre di più le parti delle immagini, partendo dal riconoscimento dei singoli elementi(es. occhio, naso, bocca,...) partendo dalle forme che lo compongono, per arrivare agli ultimi livelli che permettono la percezione degli oggetti.
+
+celle semplici : specializzate nella rilevazione di caratteristiche locali dell'input visivo (feature extractor), (Convoluzioni)
+
+celle complesse : specializzate nell'integrazione (pooling) delle informazioni provenienti da diverse posizioni retinotopiche per formare una rappresentazione globale dell'input visivo, preservando le caratteristiche invarianti per posizione
+
+
+Architettura di una rete CNN: parte convoluzione e parte fully-connected
+Una CNN è una rete che è divisa in una parte convoluzionale che estrae le feature ed una parte fully connected che elabora la risposta del sistema. la parte convoluzionale è fatta da una ricorsione di tre strati, quello convoluzionale,ReLu e Pooling. il primo applica dei filtri alle matrici per evidenziare dati. il secondo esclude i valori negativi. il terzo diminuisce la dimensione della matrice. La parte fully connected invece all'inizio esegue un flattered e poi c’è un MPL
+
+
+Algoritmo di backpropagation per il calcolo delle derivate parziale della funzione costo rispetto ai pesi di tutti i layer .
+
+Il metodo di backpropagation (BP) è tuttora uno dei metodi di addestramento più diffusi. Il termine “backpropagation” (retropropagazione) è legato essenzialmente alla tecnica utilizzata per il calcolo delle derivate della funzione di errore, basata sulle regole di derivazione delle funzioni composte Il metodo di BP è stato utilizzato in due versioni, note rispettivamente come: 
+− BP batch, in cui i pesi vengono aggiornati dopo la presentazione di tutti i campioni del training set T; 
+− BP on-line, in cui i pesi vengono aggiornati in corrispondenza a ciascun campione di T. 
+
+La BP batch è definita dall’iterazione dove 𝛻𝐶 𝑤𝑘 è il gradiente di C nel vettore corrente 𝑤 𝑘 e lo scalare η > 0 (detto learning rate) definisce il passo lungo l'anti gradiente 
+
+Tecniche di Ottimizzazione: metodo di discesa del gradient batch, metodo del gradiente stocastico (SGD), metodo del gradiente stocastico minibatch.
+.Nel batch Gradient Descent poiché stiamo utilizzando l'intero set di addestramento, i parametri verranno aggiornati solo una volta per epoca.lenta e necessita il caricamento in memoria di tutte le osservazioni
+
+Discesa del gradiente stocastico (SGD) Se si utilizza una singola osservazione per calcolare la funzione di costo, si parla di Stochastic Gradient Descent, comunemente abbreviato SGD. Passiamo una sola osservazione alla volta, calcoliamo il costo e aggiorniamo i parametri.
+più veloce perchè si basa su una osservazione per ogni iterazione ma soggetta a rumore,richiede molte più iterazioni per apprendere
+
+Mini-batch Stocastic Gradient Descent: Per calcolare la funzione di costo si considera un sottoinsieme dell'intero set di dati. Quindi, se ci sono 𝑛𝑇 osservazioni, il numero di osservazioni in ciascun sottoinsieme o mini-batch sarà maggiore di 1 e minore di 𝑛𝑇 . via di mezzo , molto piu veloce del gradient batch perchè il bacth è un sottoinsieme delle osservazioni ma non soggetto al rumore del SDG.
+
+Sotto quali condizioni, il metodo di discesa del gradiente con passo fisso converge a un punto stazionario della funzione costo, che può essere un minimo globale se la funzione è convessa?
+Condizione di Lipschitz per il gradiente: La norma del gradiente della funzione costo deve essere limitata da una costante di Lipschitz. Cioè , esiste una costante L > 0 tale che per ogni vettore di pesi x ed y, si abbia ||∇C(x) - ∇C(y)|| ≤ L ||x - y||, dove ∇C(x) rappresenta il gradiente della funzione obiettivo f in x. Questa condizione impone che il gradiente non cresca troppo velocemente, e che la funzione costo sia sufficientemente regolare. 
+Step-size (o learning rate) : Il passo di aggiornamento 𝜂 deve essere scelto in base alla costante di Lipschitz L. In particolare, per garantire la convergenza, il passo 𝜂 deve essere minore o uguale a 1/L. Questa condizione assicura che il passo non sia troppo grande rispetto alla crescita del gradiente, limitando così la possibilità di oscillazioni e garantendo la convergenza del metodo. Sotto queste condizioni, il metodo di discesa del gradiente converge a un punto stazionario della funzione costo, che può essere un minimo globale se la funzione è convessa. Tuttavia, 𝜂 fisso può essere limitante in termini di efficienza e velocità di convergenza.
+
+Non convessità della funzione di costo.
+quasi tutti i problemi di ottimizzazione in Deep Learning sono non convessi 
+introducendo la non linearità nella rete (aggiungendo strati nascosti), la funzione costo diventa non convessa e compaiono i minimi locali, e si creano 2 casi:
+il gradiente si annulla senza raggiungere il minimo globale , una zona piatta(vanishing gradient), oppure rimane bloccato in un minimo locale.
+
+
+Importanza del learning rate nei metodi di discesa.
+Valori bassi di learning rate possono far sì che sia necessario un numero elevato di passi prima che l’allenamento sia completato, e possono far sì che i pesi rimangano bloccati in un minimo locale.
+Valori alti di learning rate permettono di mitigare questi problemi,ma i pesi possono però anche finire per superare il minimo target
+
+Exact line search.
+La dimensione ottimale del learning rate può essere trovata risolvendo un problema di ottimizzazione unidimensionale 
+𝜂 (𝑘) = arg min𝜂≥0 𝐶(𝑤(𝑘) + 𝜂𝑝 (𝑘) )
+dove 𝑝 (𝑘) è la direzione di discesa. 
+Gli algoritmi di ottimizzazione unidimensionale per trovare la dimensione del passo ottimale sono genericamente chiamati exact line search 
+
+Inexact line search rule , Armijo rule.
+inexact line search rule . 
+a prima è stata Armijo rule ,consente di trovare uno step-size 𝜂 appropriato che garantisca una riduzione significativa della funzione costo, garantendo convergenza dell'algoritmo. si basa sul concetto di "backtracking", che prevede di ridurre gradualmente la dimensione del passo. L'idea principale è che, partendo da un certo punto iniziale, si riduca progressivamente la dimensione del passo moltiplicandola per il parametro 𝜎 (0 < 𝜎 < 1). Questo processo viene ripetuto fino a quando la condizione di Armijo è soddisfatta . Se questa condizione viene soddisfatta 
+𝐶(𝑤(𝑘) + 𝜂𝑝 (𝑘) ) ≤ 𝐶(𝑤 (𝑘) ) + 𝜎 ⋅ 𝜂 ∇𝐶(𝑤 (𝑘) ) 𝑇 𝑝 (𝑘) 
+allora il passo 𝜂 viene accettato; altrimenti, il passo viene ridotto di un fattore 𝜎 e il processo viene ripetuto. Armijo rule: parte con 𝜂 = 𝜂0 e lo fa decrescere moltiplicandolo per 𝜎 ∈ (0,1), finchè la funzione descresce sufficientemente.
+
+
+Metodo di ottimizzazione del gradient descent con momento. 
+Il Gradient Descent con momento viene utilizzato per risolvere i problemi elencati. Si definisce la velocità 𝑣𝑘 = 𝛽𝑣𝑘−1 + ∇𝐶(𝑤𝑘) 
+𝛽 prende il nome di momento e può variare tra 0 ed 1. 
+𝑣0 viene inizializzato a zero. 
+La formula di aggiornamento dei pesi diventa: 𝑤𝑘+1 = 𝑤𝑘 − 𝜂𝑣𝑘 Se si pone 𝛽 = 0, si ricade nel classico metodo del gradiente. Un valore appropriato è tra 0.8 e 0.9. Questo metodo aggiunge al gradiente istantaneo la media pesata esponenzialmente su più gradienti passati . Di seguito verifichiamo che 𝑣𝑘 rappresenta la media pesata esponenzialmente dei gradienti passati fino a quello al passo k
+
+Perchè è stato studiato e formula di aggiornamento dei pesi.
+Il metodo SGD con Momento aggiunge la “cronologia” agli aggiornamenti dei parametri dei problemi di discesa, il che accelera notevolmente il processo di ottimizzazione. La nuova sostituzione del gradiente non punta più nella direzione della discesa più ripida in un caso particolare, ma piuttosto nella direzione di una media ponderata esponenziale dei gradienti passati. In questo modo si ottiene una più veloce convergenza e si riduce l'oscillazione. In questo modo la scelta del learning rate è meno cruciale poiché la procedura di training si adatta alla particolare loss function.
+𝑣𝑘 = ∑𝛽 𝑘−𝑗 𝑘 𝑗=1 ∇𝐶(𝑤𝑗)
+
+
+
+Iperparametri di una rete neurale.
+Gli iperparametri sono parametri esterni al modello di machine learning che devono essere impostati prima dell'avvio del processo di addestramento. Gli iperparametri determinano come avviene l'addestramento del modello e possono includere: 
+1.Learning rate : Determina quanto velocemente o lentamente il modello si adatta ai dati. 2.Numero di epoche: il numero di volte in cui l'intero set di dati di addestramento viene utilizzato per addestrare il modello. Un numero insufficiente può portare a un modello non addestrato adeguatamente, mentre un numero eccessivo può portare a un overfitting. 
+3.Dimensione del mini-batch: il numero di esempi di addestramento utilizzati in ciascuna iterazione dell'algoritmo di ottimizzazione (ad esempio, SGD o mini-batch GD). La dimensione del mini-batch può influenzare la velocità di apprendimento e la stabilità dell'addestramento.
+4.Regolarizzazione: i parametri che controllano la regolarizzazione del modello, come il peso della regolarizzazione L1 o L2, che influenzano la complessità del modello e la tendenza all'overfitting. 
+5.Inizializzazione dei pesi: il metodo utilizzato per inizializzare i pesi può favorire una convergenza più rapida e una migliore performance. 
+6.Funzione di attivazione: la funzione utilizzata per calcolare l'output di un'unità nel modello. Le funzioni di attivazione più comuni includono ReLU, sigmoid e tanh.
+7. Architettura del modello: la struttura del modello, inclusi il numero di strati, il numero di unità in ciascun strato e le connessioni tra gli strati. La scelta dell'architettura dipende dal problema e dai dati specifici.
+
+learning rate scheduling: step decay, decadimento esponenziale, decadimento dipendente dal tempo.
+Esistono tre tipi comuni di implementazione del decadimento del learning rate: 
+•Step decay : riduce il tasso di apprendimento iniziale 𝜂0 di un fattore 𝛿 ogni numero predefinito di epoche 𝑠  n = n0 ⋅ 𝛿^|n/𝑠| dove n0 e 𝛿 e 𝑠 sono iperparametri e s è il numero di epoche eseguite 
+• Il decadimento esponenziale ha la forma matematica n = n0 ⋅ 𝑒^−𝑘𝑡 
+dove 𝜂0 e 𝑘 sono iperparametri e 𝑡 è il numero di iterazione corrente 
+• Il decadimento basato sul tempo divide il learning rate iniziale 𝜂0 in funzione del numero di iterazioni eseguite (𝑡) 𝜂 = 𝜂0 1 + 𝑘 ⋅ 𝑡 dove 𝜂0 e 𝑘 sono iperparametri 
+In alcuni casi, l'inizializzazione casuale dei parametri non garantisce una buona soluzione soprattutto se all'inizio viene utilizzato un learning rate grande che porta alla divergenza Questo problema può essere affrontato scegliendo un learning rate sufficientemente piccolo ma molto lento. Una soluzione consiste nell'utilizzare un periodo di warm-up: si inizia con un learning rate molto inferiore al learning rate "iniziale" e poi lo si aumenta in alcune iterazioni o epoche fino a raggiungere quel learning rate "iniziale" e poi lo si riduce fino alla fine del processo di ottimizzazione.
+
+Learning rate adattivo: Adagrad, RMSProp, Adadelta, Adam.
+Adagrad adatta il Learning Rate ai parametri, eseguendo aggiornamenti più grandi per i parametri poco frequenti e aggiornamenti più piccoli per quelli frequenti.
+Adagrad elimina la necessità di regolare manualmente il learning rate Il principale punto debole è l'accumulo dei gradienti al quadrato durante l'addestramento la somma accumulata cresce, il learning rate diminuisce diventando infinitesimamente piccolo fino a che non è più in grado di apprendere.
+RMSProp è stato introdotto per ridurre la diminuzione aggressiva del learning rate di Adagrad. Modifica la parte di accumulo del gradiente di Adagrad con una media ponderata esponenziale dei gradienti al quadrato invece della somma dei gradienti al quadrato
+Adadelta è un'altra variante di Adagrad .Come RMSProp calcola l'accumulo del gradiente come una media ponderata esponenziale dei gradienti al quadrato ma, a differenza di RMSProp, non richiede di impostare un learning rate in quanto utilizza la quantità di cambiamento stessa come calibrazione per il cambiamento futuro
